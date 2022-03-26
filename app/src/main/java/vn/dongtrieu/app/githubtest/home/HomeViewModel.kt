@@ -1,5 +1,6 @@
 package vn.dongtrieu.app.githubtest.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,9 +28,14 @@ class HomeViewModel @Inject constructor(
         compositeDisposable.add(
             getGithubUser.invoke()
             .subscribeOn(Schedulers.io())
-            .subscribe { it ->
-                _listGithubUser.postValue(it)
-            }
+            .subscribe(
+                {
+                    _listGithubUser.postValue(it)
+                },
+                {
+                    Log.d("HDT", it.message.toString())
+                }
+            )
         )
     }
 

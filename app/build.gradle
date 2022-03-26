@@ -24,12 +24,12 @@ android {
     buildTypes {
         debug {
             buildConfigField 'String', 'HOST', '"https://api.github.com"'
-            buildConfigField 'String', 'TOKEN', '"token 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"'
+            buildConfigField 'String', 'TOKEN', '"token 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"'
         }
 
         release {
             buildConfigField 'String', 'HOST', '"https://api.github.com"'
-            buildConfigField 'String', 'TOKEN', '"token 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"'
+            buildConfigField 'String', 'TOKEN', '"token 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"'
         }
     }
 
