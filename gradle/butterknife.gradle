@@ -1,0 +1,8 @@
+apply plugin: 'com.jakewharton.butterknife'
+
+dependencies {
+  implementation(deps.butterknife.core) {
+    exclude group: 'com.android.support'
+  }
+  kapt deps.butterknife.compiler
+}

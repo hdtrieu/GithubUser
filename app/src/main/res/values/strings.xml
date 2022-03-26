@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">startest</string>
+
+    <string name="failed_message">Failed to get information!!!</string>
+    <string name="error">Error</string>
+
+    <string name="loading_string">Loading</string>
+    <string name="ok">OK</string>
+
+    <string name="common_search_placeholder">find some one you want…</string>
+</resources>

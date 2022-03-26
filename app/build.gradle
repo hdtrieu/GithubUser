@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+    buildToolsVersion buildConfig.buildToolsVersion
+
+    defaultConfig {
+        applicationId "vn.dongtrieu.app.githubtest"
+        minSdkVersion buildConfig.minSdkVersion
+        targetSdkVersion buildConfig.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "default"
+    buildTypes {
+        debug {
+            buildConfigField 'String', 'HOST', '"https://api.github.com"'
+            buildConfigField 'String', 'TOKEN', '"token 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"'
+        }
+
+        release {
+            buildConfigField 'String', 'HOST', '"https://api.github.com"'
+            buildConfigField 'String', 'TOKEN', '"token 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"'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation deps.support.coreKtx
+    implementation deps.support.appcompat
+    implementation deps.support.material
+    implementation deps.support.constraintlayout
+    implementation deps.okhttp.core
+    implementation deps.okhttp.urlconnection
+    implementation deps.okhttp.loggingintercepter
+
+    implementation deps.dagger.core
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.lifecycleExtensions
+
+    implementation deps.kotlin.stdlib
+    implementation deps.retrofit.core
+    kapt deps.dagger.compiler
+    kapt deps.dagger.androidCompiler
+
+    implementation deps.rx2.java
+    implementation deps.rx2.android
+    implementation deps.gson
+    implementation deps.retrofit.core
+    implementation deps.retrofit.converter
+    implementation deps.retrofit.rx2Adapter
+
+    implementation deps.navigation.ui
+    implementation deps.navigation.fragment
+
+    implementation deps.mvrx
+
+    implementation deps.epoxy.runtime
+    kapt deps.epoxy.compiler
+
+    //glide
+    implementation(deps.glide.core) {exclude group: "com.android.support"}
+    implementation deps.glide.integration
+    kapt deps.glide.compiler
+}
+
+apply from: rootProject.file('gradle/configure.gradle')

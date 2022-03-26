@@ -1,0 +1,5 @@
+apply plugin: 'kotlin-kapt'
+
+kapt {
+  correctErrorTypes true
+}

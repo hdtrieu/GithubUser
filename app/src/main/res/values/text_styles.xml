@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Body1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColorHint">@color/gray60</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+</resources>
