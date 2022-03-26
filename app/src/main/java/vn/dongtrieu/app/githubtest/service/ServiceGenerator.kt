@@ -22,11 +22,13 @@ class ServiceGenerator {
     private fun getClient(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
         val headerInterceptor = RequestInterceptor()
+        val changeAccessToken = AccessTokenInterceptor()
         interceptor.apply { interceptor.level = HttpLoggingInterceptor.Level.BODY }
         return OkHttpClient
             .Builder()
             .addInterceptor(interceptor)
             .addInterceptor(headerInterceptor)
+            .addInterceptor(changeAccessToken)
             .build()
     }
 }
